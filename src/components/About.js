@@ -1,14 +1,22 @@
-import React from "react";
+import {React, ReactPropTypes }from "react";
+import Links from "./Links"
+import PropTypes from 'prop-types';
 
-function About() {
+function About({bio, github, linkedin}) {
+
   return (
     <div id="about">
       <h2>About Me</h2>
-      <p>I made this!</p>
+      {/* {handleBio(props.bio)} */}
+      {(bio?.trim().length> 0)?<p>{bio}</p>:null}
       <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
-      {"https://github.com/liza"<About}
+      <Links github={github} linkedin={linkedin} />
     </div>
   );
 }
+About.propTypes ={bio:PropTypes.string.isRequired}
+// function handleBio(bio){
+//   return (bio?.trim().length>0)?<p>{bio}</p>:null;
+// }
 
 export default About;
